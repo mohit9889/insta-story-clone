@@ -32,6 +32,18 @@ const StoryList = ({ stories }: Props) => {
     }
   };
 
+  const handlePrevStory = () => {
+    if (currentStoryIndex !== null && currentStoryIndex > 0) {
+      const prevIndex = currentStoryIndex - 1;
+      setCurrentStoryIndex(prevIndex);
+      setCurrentSelectedStory(stories[prevIndex]);
+    } else {
+      // Close the story view when the last story is finished
+      setCurrentStoryIndex(null);
+      setCurrentSelectedStory(null);
+    }
+  };
+
   return (
     <>
       <div className="flex gap-4 overflow-x-auto p-2 hide-scrollbar border-b-[1px]">
@@ -52,6 +64,7 @@ const StoryList = ({ stories }: Props) => {
             setCurrentSelectedStory(null);
           }}
           onNext={handleNextStory}
+          onPrev={handlePrevStory}
         />
       )}
     </>

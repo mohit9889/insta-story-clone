@@ -8,9 +8,10 @@ type Props = {
   story: User | null;
   onClose: () => void;
   onNext: () => void;
+  onPrev: () => void;
 };
 
-const StoryView = ({ story, onClose, onNext }: Props) => {
+const StoryView = ({ story, onClose, onNext, onPrev }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Reset the currentIndex to 0 whenever the story prop changes
@@ -29,6 +30,14 @@ const StoryView = ({ story, onClose, onNext }: Props) => {
       profileImage: story.profile_image,
     },
   }));
+
+  const handlePrevious = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    } else {
+      onPrev();
+    }
+  };
 
   return (
     <div className={styles["story-view"]} data-TestId="Stories">
@@ -51,6 +60,12 @@ const StoryView = ({ story, onClose, onNext }: Props) => {
           currentIndex={currentIndex}
           onAllStoriesEnd={() => {
             onNext();
+          }}
+          onPrevious={() => {
+            handlePrevious();
+          }}
+          onNext={() => {
+            setCurrentIndex(currentIndex + 1);
           }}
           width="100%"
           height="100vh"

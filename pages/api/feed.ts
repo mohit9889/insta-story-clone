@@ -1,5 +1,3 @@
-// pages/api/feed.ts
-
 import { faker } from "@faker-js/faker";
 import { NextApiRequest, NextApiResponse } from "next";
 
