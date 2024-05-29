@@ -11,4 +11,13 @@ module.exports = {
   images: {
     domains: ["avatars.githubusercontent.com", "cloudflare-ipfs.com"],
   },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
+  },
 };

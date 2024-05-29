@@ -27,7 +27,7 @@ const generateUserData = (): User => {
   const numberOfStories = generateRandomNumber(1, 5); // Generate a random number of stories between 1 and 5
   const stories = Array.from({ length: numberOfStories }, () => ({
     id: generateRandomNumber(1, 1000),
-    image: generateRandomImage(200, 300),
+    image: generateRandomImage(400, 800),
   }));
 
   return {
