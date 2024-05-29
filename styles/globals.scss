@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+// components
+@import "./components/Icons.scss";
+
 /* Hide scrollbar for all browsers */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
