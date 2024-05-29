@@ -5,7 +5,7 @@ import { User } from "~/types/types";
 import styles from "./style.module.scss";
 
 type Props = {
-  story: User;
+  story: User | null;
   onClose: () => void;
   onNext: () => void;
 };
@@ -18,7 +18,7 @@ const StoryView = ({ story, onClose, onNext }: Props) => {
     setCurrentIndex(0);
   }, [story]);
 
-  if (!story || !story.stories) return null;
+  if (!story || !story.stories || story.stories.length === 0) return null;
 
   const storiesData = story.stories.map((_story) => ({
     url: _story.image,

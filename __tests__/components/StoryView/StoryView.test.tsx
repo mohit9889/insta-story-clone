@@ -37,7 +37,12 @@ describe("StoryView component", () => {
 
     const { container: container2 } = render(
       <StoryView
-        story={{ id: 1, user_name: "John Doe" }}
+        story={{
+          id: 1,
+          user_name: "John Doe",
+          profile_image: "https://picsum.photos/120/120?random=665",
+          stories: [],
+        }}
         onClose={() => {}}
         onNext={() => {}}
       />,

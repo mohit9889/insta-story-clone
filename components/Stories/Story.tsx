@@ -2,7 +2,7 @@ import Image from "next/image";
 import { User } from "~/types/types";
 
 type Props = {
-  story: User;
+  story: User | null;
   onClick: () => void;
 };
 
