@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Stories from "react-insta-stories";
 import { User } from "~/types/types";
+import { getTimeAgoString } from "~/utils/time";
 import styles from "./style.module.scss";
 
 type Props = {
@@ -23,10 +24,10 @@ const StoryView = ({ story, onClose, onNext, onPrev }: Props) => {
 
   const storiesData = story.stories.map((_story) => ({
     url: _story.image,
-    type: "image",
+    type: _story.data_type,
     header: {
       heading: story.user_name,
-      subheading: "Posted 30m ago",
+      subheading: `Posted ${getTimeAgoString(new Date(_story.posted_on))}`,
       profileImage: story.profile_image,
     },
   }));

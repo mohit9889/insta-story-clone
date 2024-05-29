@@ -54,6 +54,8 @@ const mockStories: User[] = [
       {
         id: 791,
         image: "https://picsum.photos/400/800?random=635",
+        data_type: "image",
+        posted_on: new Date(),
       },
     ],
   },

@@ -10,14 +10,20 @@ const mockStory = {
     {
       id: 791,
       image: "https://picsum.photos/400/800?random=665",
+      data_type: "image",
+      posted_on: new Date(),
     },
     {
       id: 71,
       image: "https://picsum.photos/400/800?random=638",
+      data_type: "image",
+      posted_on: new Date(),
     },
     {
       id: 991,
       image: "https://picsum.photos/400/800?random=634",
+      data_type: "image",
+      posted_on: new Date(),
     },
   ],
 };
