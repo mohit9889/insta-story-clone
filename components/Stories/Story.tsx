@@ -15,7 +15,7 @@ const Story = ({ story, onClick }: Props) => {
       className="flex flex-col items-center"
       onClick={onClick}
     >
-      <div className="mt-1 mb-2 w-[56px] h-[56px] ring-2 ring-red-500 rounded-full p-1">
+      <div className="mt-1 mb-2 w-[56px] h-[56px] rounded-full relative">
         <Image
           src={story.profile_image}
           alt={story.user_name}
@@ -25,6 +25,14 @@ const Story = ({ story, onClick }: Props) => {
           fetchPriority="high"
           priority
         />
+        <div className="absolute top-[-4px] left-[-4px] w-[64px] h-[64px]">
+          <Image
+            src="/svg/story-ring.svg"
+            height={64}
+            width={64}
+            alt="story ring"
+          />
+        </div>
       </div>
       <span className="text-xs">
         {story.user_name.length > 8

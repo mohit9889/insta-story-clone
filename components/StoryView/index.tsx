@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import Stories from "react-insta-stories";
-import CloseSvg from "~/public/svg/close.svg";
 import { User } from "~/types/types";
 import styles from "./style.module.scss";
 
@@ -31,10 +31,17 @@ const StoryView = ({ story, onClose, onNext }: Props) => {
   }));
 
   return (
-    <div className={styles["story-view"]}>
+    <div className={styles["story-view"]} data-TestId="Stories">
       <button className="absolute right-3 top-5 z-[10000]" onClick={onClose}>
-        <span className="icon-20 icon-white">
-          <CloseSvg />
+        <span className="h-[20px] w-[20px]">
+          <Image
+            src="/svg/close.svg"
+            alt="close icon"
+            height={20}
+            width={20}
+            priority
+            fetchPriority="high"
+          />
         </span>
       </button>
       {storiesData.length && (
