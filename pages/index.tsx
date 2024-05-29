@@ -9,9 +9,9 @@ type Props = {
 
 const Home = ({ feed }: Props) => {
   return (
-    <div>
+    <>
       <StoryList stories={feed} />
-    </div>
+    </>
   );
 };
 

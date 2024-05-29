@@ -22,6 +22,7 @@ const Story = ({ story, onClick }: Props) => {
           height={56}
           width={56}
           className="rounded-full"
+          fetchPriority="high"
           priority
         />
       </div>

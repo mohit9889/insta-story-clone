@@ -33,7 +33,7 @@ const StoryList = ({ stories }: Props) => {
   };
 
   return (
-    <div>
+    <>
       <div className="flex gap-4 overflow-x-auto p-2 hide-scrollbar border-b-[1px]">
         {stories.map((story, index) => (
           <Story
@@ -54,7 +54,7 @@ const StoryList = ({ stories }: Props) => {
           onNext={handleNextStory}
         />
       )}
-    </div>
+    </>
   );
 };
 
