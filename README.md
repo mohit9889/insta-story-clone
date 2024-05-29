@@ -2,6 +2,10 @@
 
 This project implements an Instagram-like stories feature using Next.js with TypeScript. It allows users to view stories posted by other users in a carousel format, similar to the functionality found in the Instagram app.
 
+## Demo
+
+Check out the live demo: [Instagram Story Clone Demo](https://insta-story-clone-ten.vercel.app/)
+
 ## Features
 
 - Story Viewing: Users can view stories posted by other users.
