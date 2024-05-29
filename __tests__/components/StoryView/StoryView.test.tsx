@@ -25,13 +25,23 @@ const mockStory = {
 describe("StoryView component", () => {
   it("renders without crashing", () => {
     render(
-      <StoryView story={mockStory} onClose={() => {}} onNext={() => {}} />,
+      <StoryView
+        story={mockStory}
+        onClose={() => {}}
+        onNext={() => {}}
+        onPrev={() => {}}
+      />,
     );
   });
 
   it("renders null when story prop or its stories data is not provided", () => {
     const { container } = render(
-      <StoryView story={null} onClose={() => {}} onNext={() => {}} />,
+      <StoryView
+        story={null}
+        onClose={() => {}}
+        onNext={() => {}}
+        onPrev={() => {}}
+      />,
     );
     expect(container.firstChild).toBeNull();
 
@@ -45,6 +55,7 @@ describe("StoryView component", () => {
         }}
         onClose={() => {}}
         onNext={() => {}}
+        onPrev={() => {}}
       />,
     );
     expect(container2.firstChild).toBeNull();
@@ -53,7 +64,12 @@ describe("StoryView component", () => {
   it("calls onNext when all stories end", () => {
     const onNextMock = jest.fn();
     const { getByTestId } = render(
-      <StoryView story={mockStory} onClose={() => {}} onNext={onNextMock} />,
+      <StoryView
+        story={mockStory}
+        onClose={() => {}}
+        onNext={onNextMock}
+        onPrev={() => {}}
+      />,
     );
 
     // Find the Stories component by its data-testid attribute
@@ -66,10 +82,33 @@ describe("StoryView component", () => {
     expect(onNextMock).toHaveBeenCalled();
   });
 
+  it("calls onPrev when previous button is clicked and current index is 0", () => {
+    const onPrevMock = jest.fn();
+    const { getByRole } = render(
+      <StoryView
+        story={mockStory}
+        onClose={() => {}}
+        onNext={() => {}}
+        onPrev={onPrevMock}
+      />,
+    );
+
+    // Click the previous button
+    fireEvent.click(getByRole("button", { name: /previous icon/i }));
+
+    // Ensure that onPrev has been called
+    expect(onPrevMock).toHaveBeenCalled();
+  });
+
   it("calls onClose when close button is clicked", () => {
     const onCloseMock = jest.fn();
     const { getByRole } = render(
-      <StoryView story={mockStory} onClose={onCloseMock} onNext={() => {}} />,
+      <StoryView
+        story={mockStory}
+        onClose={onCloseMock}
+        onNext={() => {}}
+        onPrev={() => {}}
+      />,
     );
 
     fireEvent.click(getByRole("button"));
