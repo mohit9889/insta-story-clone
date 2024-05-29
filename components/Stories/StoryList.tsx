@@ -1,5 +1,5 @@
 import { useState } from "react";
-import StoryView from "~/components/StoryView";
+import StoryView from "~/components/StoryView/StoryView";
 import { User } from "~/types/types";
 import Story from "./Story";
 

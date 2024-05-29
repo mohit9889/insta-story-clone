@@ -1,5 +1,4 @@
 export const getTimeAgoString = (timestamp: Date): string => {
-  console.log(timestamp, "<<<<LOG");
   const currentDate = new Date();
   const pastDate = new Date(timestamp);
 

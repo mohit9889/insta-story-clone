@@ -15,7 +15,7 @@ jest.mock(
 
 // Mocking the StoryView component
 jest.mock(
-  "~/components/StoryView",
+  "~/components/StoryView/StoryView",
   () =>
     ({
       story,

@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
-import StoryView from "~/components/StoryView";
+import StoryView from "~/components/StoryView/StoryView";
 
 // Mock user data
 const mockStory = {
